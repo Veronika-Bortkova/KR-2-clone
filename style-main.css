@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+body{
+    font-size: 32px;
+    font-weight: 400;
+    color: #323232;
+    padding: 30px 20vh 0 20vh;
+}
+#wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+    /*background: #d3ffff;*/
+}
+.block{
+    background: #deffe2;
+    padding: 20px;
+    border-radius: 12px;
+    outline: 2px solid #202020;
+    /*align-self: center; !* блок прижимается к верхней границе ячейки *!*/
+    /*justify-self: center !* блок прижимается к левой границе *!*/
+
+
+
+
+}
