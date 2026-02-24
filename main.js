@@ -4,7 +4,7 @@ fetch("https://jsonplaceholder.typicode.com/users")
         console.log(users);
         let arrDivBloks = Array.from(document.getElementsByClassName("block"));
            arrDivBloks.forEach((divBlock, index) =>{
-               if (users[index]) {
+               // if (users[index]) {
                let divId = document.createElement("div");
                divId.className = "name";
                let divName = document.createElement("div");
@@ -12,6 +12,6 @@ fetch("https://jsonplaceholder.typicode.com/users")
                divId.innerText = users[index].id;
                divName.innerText = users[index].name;
                divBlock.append(divId, divName);
-               }
+               // }
            });
     });

@@ -3,9 +3,9 @@ body{
     font-size: 32px;
     font-weight: 400;
     color: #323232;
-    padding: 30px 20vh 0 20vh;
 }
 #wrapper{
+    margin: 5% 10% 5% 10%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px 40px;
@@ -18,8 +18,4 @@ body{
     outline: 2px solid #202020;
     /*align-self: center; !* блок прижимается к верхней границе ячейки *!*/
     /*justify-self: center !* блок прижимается к левой границе *!*/
-
-
-
-
 }
