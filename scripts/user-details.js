@@ -84,8 +84,7 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
             divPostTitle.innerText ="Post title: " + firstСapitalLettere(posts.title);
             let buttonPostDetalis = document.createElement("a");
             buttonPostDetalis.className = "buttonPostDetalis";
-            buttonPostDetalis.href = "pages/post-details.html"
-                // ?" + posts.id;
+            buttonPostDetalis.href = "post-details.html?id=" + posts.id;
             buttonPostDetalis.innerText = "Post details";
             divPostWrapper.append(divPostTitle, buttonPostDetalis);
             divWrapper.append(divPostWrapper);
