@@ -13,7 +13,7 @@ fetch("https://jsonplaceholder.typicode.com/users")
                 divName.className = "name";
                 let buttonDetails = document.createElement("a");
                 buttonDetails.className = "details";
-                buttonDetails.href = "user-details.html?id=" + users[index].id;
+                buttonDetails.href = "pages/user-details.html?id=" + users[index].id;
                 buttonDetails.innerText = "Details";
                 divName.className = "name";
                 divTitle.innerText = "User" + " " + (index + 1);
