@@ -10,7 +10,7 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
     .then((objDetails) => {
         let divTopBlock = document.getElementById("topBlok");
         let titlPage = document.createElement("h1");
-        titlPage.innerText = "User - " + id + "details";
+        titlPage.innerText = "User - " + id + " " + "details";
         divTopBlock.append(titlPage);
         for (const Key in objDetails) {
             if (Key === "address") {
@@ -64,6 +64,37 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
                 divTopBlock.append(divParam);
             }
         }
-        console.log(objDetails);
+        console.log(objDetails);//========================================
+    });
+
+fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
+    .then(res => res.json())
+    .then((posts) => {
+        let divBottomBlock = document.getElementById("bottomBlock");
+        let buttonPosts = document.getElementById("buttonPosts");
+        buttonPosts.addEventListener("click", function (ev){
+
+            let divWrapper = document.createElement("div");
+            divWrapper.className = "divWrapper";
+            posts.forEach(posts =>{
+            let divPostTitle = document.createElement("div");
+            divPostTitle.className = "divPostTitle";
+            let divPostWrapper = document.createElement("div");
+            divPostWrapper.className = "divPostsWrapper";
+            divPostTitle.innerText ="Post title: " + firstСapitalLettere(posts.title);
+            let buttonPostDetalis = document.createElement("a");
+            buttonPostDetalis.className = "buttonPostDetalis";
+            buttonPostDetalis.href = "post-details.html?" + posts.id;
+            buttonPostDetalis.innerText = "Post details";
+            divPostWrapper.append(divPostTitle, buttonPostDetalis);
+            divWrapper.append(divPostWrapper);
+            divBottomBlock.append(divWrapper);
+            });
+
+        })
+
+
+        console.log(posts);
+
     });
 
