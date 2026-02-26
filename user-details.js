@@ -2,7 +2,6 @@ function firstСapitalLettere(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-
 let paramsURL = new URLSearchParams(window.location.search);
 let id = paramsURL.get("id");
 
@@ -10,6 +9,9 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
     .then(res => res.json())
     .then((objDetails) => {
         let divTopBlock = document.getElementById("topBlok");
+        let titlPage = document.createElement("h1");
+        titlPage.innerText = "User - " + id + "details";
+        divTopBlock.append(titlPage);
         for (const Key in objDetails) {
             if (Key === "address") {
                 let divParamAdr = document.createElement("div");
@@ -19,21 +21,24 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
                 divTitleAddress.innerText = "Address:";
                 divTopBlock.append(divTitleAddress);
                 for (const ulAddressKey in objDetails.address) {
-                    if (ulAddressKey === "geo"){
-
-
-
-
-
+                    if (ulAddressKey === "geo") {
+                        let liTitleGeo = document.createElement("li");
                         let ulGeo = document.createElement("ul");
-                        let liLat = document.createElement("li");
-                        let liLng = document.createElement("li");
-                        liLat.innerText = firstСapitalLettere(ulAddressKey)+ ":" + " " + objDetails.address[ulAddressKey]["geo"];
+                        liTitleGeo.innerText = "Geo:";
+                        for (const KeyGeo in objDetails.address.geo) {
+                            let liGeo = document.createElement("li");
+                            liGeo.innerText = firstСapitalLettere(KeyGeo) + ":" + " " + objDetails.address.geo[KeyGeo];
+                            ulGeo.append(liGeo);
+                        }
+                        ulAddress.append(liTitleGeo);
+                        ulAddress.append(ulGeo);
+                    } else {
+
+                        let liAdres = document.createElement("li");
+                        liAdres.className = "liAdress";
+                        liAdres.innerText = firstСapitalLettere(ulAddressKey) + ":" + " " + objDetails.address[ulAddressKey];
+                        ulAddress.append(liAdres);
                     }
-                    let liAdres = document.createElement("li");
-                    liAdres.className = "liAdress";
-                    liAdres.innerText = firstСapitalLettere(ulAddressKey)+ ":" + " " + objDetails.address[ulAddressKey];
-                    ulAddress.append(liAdres);
                 }
                 divParamAdr.append(ulAddress);
                 divTopBlock.append(divParamAdr);
@@ -62,24 +67,3 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
         console.log(objDetails);
     });
 
-// "id": 3,
-//     "name": "Clementine Bauch",
-//     "username": "Samantha",
-//     "email": "Nathan@yesenia.net",
-//     "address": {
-//     "street": "Douglas Extension",
-//         "suite": "Suite 847",
-//         "city": "McKenziehaven",
-//         "zipcode": "59590-4157",
-//         "geo": {
-//         "lat": "-68.6102",
-//             "lng": "-47.0653"
-//     }
-// },
-// "phone": "1-463-123-4447",
-//     "website": "ramiro.info",
-//     "company": {
-//     "name": "Romaguera-Jacobson",
-//         "catchPhrase": "Face to face bifurcated interface",
-//         "bs": "e-enable strategic applications"
-// }
