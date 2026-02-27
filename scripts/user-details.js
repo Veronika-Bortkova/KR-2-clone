@@ -9,17 +9,13 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
     .then(res => res.json())
     .then((objDetails) => {
         let divTopBlock = document.getElementById("topBlok");
-        let titlPage = document.createElement("h1");
+        let titlPage = document.getElementById("h1");
         titlPage.innerText = "User - " + id + " " + "details";
-        divTopBlock.append(titlPage);
         for (const Key in objDetails) {
             if (Key === "address") {
                 let divParamAdr = document.createElement("div");
                 divParamAdr.className = "item";
                 let ulAddress = document.createElement("ul");
-                let divTitleAddress = document.createElement("div");
-                divTitleAddress.innerText = "Address:";
-                divTopBlock.append(divTitleAddress);
                 for (const ulAddressKey in objDetails.address) {
                     if (ulAddressKey === "geo") {
                         let liTitleGeo = document.createElement("li");
@@ -46,9 +42,6 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
                 let divParamComp = document.createElement("div");
                 divParamComp.className = "item";
                 let ulCompany = document.createElement("ul");
-                let divTitleCompany = document.createElement("div");
-                divTitleCompany.innerText = "Company:";
-                divTopBlock.append(divTitleCompany);
                 for (const ulCompanyKey in objDetails.company) {
                     let liCompany = document.createElement("li");
                     liCompany.className = "liCompany";
@@ -64,7 +57,30 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
                 divTopBlock.append(divParam);
             }
         }
-        // console.log(objDetails);//========================================
+        let divItemTopblocks = Array.from(document.getElementsByClassName("item"));
+        console.log(divItemTopblocks);
+        let divwrapperFirstColumn = document.getElementById("wrapperFirstColumn");
+        let divwrapperSecondColumn = document.getElementById("wrapperSecondColumn");
+        let divwrapperThirdColumn = document.getElementById("wrapperThirdColumn");
+        let divTitleAddress = document.createElement("div");
+        divTitleAddress.innerText = "Address:";
+        let divTitleCompany = document.createElement("div");
+        divTitleCompany.innerText = "Company:";
+
+        divItemTopblocks.forEach((div, index) =>{
+            if (index===0 || index<4){
+                divwrapperFirstColumn.append(div);
+            } else if(index===4){
+                divwrapperSecondColumn.append(divTitleAddress);
+                divwrapperSecondColumn.append(div);
+            } else if (index===6) {
+                divwrapperThirdColumn.append(div)
+                divwrapperThirdColumn.append(divTitleCompany)
+            } else{
+                divwrapperThirdColumn.append(div)
+            }
+        });
+
     });
 
 fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
@@ -72,10 +88,10 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
     .then((posts) => {
         let divBottomBlock = document.getElementById("bottomBlock");
         let buttonPosts = document.getElementById("buttonPosts");
+        let divWrapper = document.createElement("div");
+        divWrapper.className = "divWrapper";
         buttonPosts.addEventListener("click", function (ev){
-
-            let divWrapper = document.createElement("div");
-            divWrapper.className = "divWrapper";
+            divWrapper.innerHTML = "";
             posts.forEach(posts =>{
             let divPostTitle = document.createElement("div");
             divPostTitle.className = "divPostTitle";
@@ -91,10 +107,8 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
             divBottomBlock.append(divWrapper);
             });
 
-        })
-
-
-        console.log(posts);
+        });
 
     });
+
 

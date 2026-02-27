@@ -6,16 +6,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
     background: #deffe2;
     border-radius: 35px;
     box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.75);
     margin-top: 1.5%;
+    font-size: 18px;
 }
 #topBlok > div {
     text-align: left;
-    width: 300px;
-    border-radius: 5px;
+}
+#wrapperDivsTopblock{
+    display: flex;
+    gap: 50px;
+    width: auto;
+    margin: 20px 20px;
 }
 h1{
     font-size: 25px;
@@ -26,10 +30,10 @@ ul{
 }
 #bottomBlock{
     width: 90%;
-    margin: 0 auto 1.5% auto;
+    margin: 0 auto 20px auto;
 }
 #buttonPosts {
-    background: linear-gradient(to bottom, #c1d5b8, #e2fad0);
+    background: linear-gradient(to bottom, #deffe2, #e2fad0);
     width: 100%;
     height: 35px;
     font-size: 20px;
@@ -53,16 +57,19 @@ ul{
 
 .divWrapper{
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 19% 19% 19% 19% 19%;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    align-items: center;
     background: #deffe2;
-    padding: 20px;
+    padding: 1.5%;
     font-size: 20px;
     border-radius: 20px;
     box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.75);
-    gap: 5px;
+    row-gap: 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
+
 }
 .divWrapper > div:nth-child(2n) {
     background-color: rgba(202, 255, 191, 0.81);
@@ -72,12 +79,14 @@ ul{
 .divPostsWrapper{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     border-radius: 20px;
     border: #92c59b solid 2px;
     padding: 10px;
-
+    gap: 5px;
+    height: 100%;
 }
 
 .buttonPostDetalis {
@@ -85,16 +94,15 @@ ul{
     justify-content: center;
     align-items: center;
     background: linear-gradient(to bottom, #f3f3f3, #ffffff);
-    width: 80px;
-    height: 50px;
-    font-size: 20px;
-    font-weight: 500;
+    width: 100%;
+    min-height: 30px;
+    font-size: 18px;
+    font-weight: 600;
     border-radius: 10px;
     border: #58715a solid 2px;
     padding: 5px 5px;
     color: black;
     cursor: pointer;
-    letter-spacing: 1px;
     transform: scale(1);
     transition: transform 0.2s, border 0.2s;
     text-align: center;
@@ -111,4 +119,8 @@ ul{
 .buttonPostDetalis:active{
     transform: scale(0.8);
     transition: 0.2s;
+}
+.divPostTitle{
+    width: 100%;
+    font-size: 18px;
 }

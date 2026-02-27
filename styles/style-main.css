@@ -16,10 +16,9 @@ body{
     flex-direction: column;
     justify-content: space-between;
     background: #deffe2;
-    padding: 20px;
     border-radius: 12px;
     gap: 10px;
-    padding: 20px 30px;
+    padding: 20px 40px;
     box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.75);
 }
 .title{
