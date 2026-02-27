@@ -80,7 +80,6 @@ fetch("https://jsonplaceholder.typicode.com/users"+"/"+id)
                 divwrapperThirdColumn.append(div)
             }
         });
-
     });
 
 fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)

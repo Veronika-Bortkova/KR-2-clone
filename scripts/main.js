@@ -1,7 +1,6 @@
 fetch("https://jsonplaceholder.typicode.com/users")
     .then(res => res.json())
     .then((users) => {
-        // console.log(users);
         let arrDivBloks = Array.from(document.getElementsByClassName("block"));
            arrDivBloks.forEach((divBlock, index) =>{
             if (users[index]) {

@@ -9,7 +9,6 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px 40px;
-    /*background: #d3ffff;*/
 }
 .block{
     display: flex;
