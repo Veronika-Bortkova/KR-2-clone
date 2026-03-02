@@ -69,7 +69,6 @@ ul{
     row-gap: 10px;
     box-sizing: border-box;
     justify-content: space-between;
-
 }
 .divWrapper > div:nth-child(2n) {
     background-color: rgba(202, 255, 191, 0.81);
